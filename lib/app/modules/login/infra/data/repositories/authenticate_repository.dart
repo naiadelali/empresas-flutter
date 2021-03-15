@@ -22,15 +22,13 @@ class AuthenticateRepository implements IAuthenticateRepository {
 
       return Right(result);
     } on Failure catch (err) {
-      return Left(FailurePostAuthenticate(
-          message: 'Falha ao faer requisição ao servidor'));
+      return Left(FailurePostAuthenticate(message: 'Falha na autenticação!'));
     } on DioError catch (e) {
       if (e.error is DioFailure)
         return Left(
             FailurePostAuthenticate(message: (e.error as DioFailure).message));
       else
-        return Left(FailurePostAuthenticate(
-            message: 'Falha ao faer requisição ao servidor'));
+        return Left(FailurePostAuthenticate(message: 'Falha na autenticação'));
     } on Exception catch (e) {
       return Left(FailurePostAuthenticate(message: e.toString()));
     }

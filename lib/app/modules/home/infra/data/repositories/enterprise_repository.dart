@@ -36,7 +36,7 @@ class EnterpriseRepository implements IEnterpriseRepository {
             FailureGetEnterprises(message: (e.error as DioFailure).message));
       else
         return Left(FailureGetEnterprises(
-            message: 'Falha ao faer requisição ao servidor'));
+            message: 'Falha ao fazer requisição ao servidor'));
     } on Exception catch (e) {
       return Left(FailureGetEnterprises(message: e.toString()));
     }
