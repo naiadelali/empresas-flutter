@@ -7,5 +7,6 @@ class PasswordTextFormFieldController {
   PasswordTextFormFieldController(
     this.store,
   );
-  void switchVisible() => store.setPasswordVisibility(!store.state);
+  void setError(String? v) => store.setErrorMsg(v!);
+  void switchVisible() => store.setPasswordVisibility(!store.state.isvisible);
 }

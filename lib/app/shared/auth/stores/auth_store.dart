@@ -8,8 +8,8 @@ import 'package:mobx_triple/mobx_triple.dart';
 @Injectable()
 class AuthStore extends MobXStore<Failure, AuthModel> {
   AuthStore() : super(AuthModel());
+  void setErrorMsg(String? v) => update(state.copyWith(messageError: v));
   void setEmail(String v) => state.email = v;
-
   void setPassword(String v) => state.password = v;
   Future<void> setLogin(Either<Failure, AuthModel> value) async {
     await executeEither(() async => value, delay: Duration(milliseconds: 500));

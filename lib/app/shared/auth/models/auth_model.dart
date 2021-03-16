@@ -8,6 +8,7 @@ class AuthModel {
   String uid;
   String email;
   String password;
+  String? messageError;
   bool islogged;
 
   AuthModel({
@@ -16,6 +17,7 @@ class AuthModel {
     this.uid = '',
     this.email = '',
     this.password = '',
+    this.messageError,
     this.islogged = false,
   });
 
@@ -23,11 +25,19 @@ class AuthModel {
     String? apiToken,
     String? client,
     String? uid,
+    String? email,
+    String? password,
+    String? messageError,
+    bool? islogged,
   }) {
     return AuthModel(
       apiToken: apiToken ?? this.apiToken,
       client: client ?? this.client,
       uid: uid ?? this.uid,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      messageError: messageError ?? this.messageError,
+      islogged: islogged ?? this.islogged,
     );
   }
 

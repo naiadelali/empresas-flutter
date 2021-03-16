@@ -12,10 +12,10 @@ class LoginController {
   final AuthStore store;
 
   LoginController(this._authenticateByLogin, this.store);
-
+  void setError(String? v) => store.setErrorMsg(v!);
   void setEmail(String? v) => store.setEmail(v!);
   void setPassword(String? v) => store.setPassword(v!);
-  Future<void> login(String login, String password) async {
+  Future<void> login(String login, String password, String? errorMsg) async {
     var overlay = OverlayEntry(
       builder: (context) {
         return LoadingProgressIndicatorWidget(

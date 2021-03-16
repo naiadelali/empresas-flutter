@@ -66,7 +66,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
       emailChanged: store.setEmail,
       errorMsg: messageError,
       passwordChanged: store.setPassword,
-      loginPressed: () => store.login(model.email, model.password),
+      loginPressed: () =>
+          store.login(model.email, model.password, messageError),
     );
   }
 }

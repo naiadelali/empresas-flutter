@@ -112,10 +112,13 @@ class _DefaultTextFieldWidgetState extends State<DefaultTextFieldWidget> {
               fontWeight: FontWeight.w400,
               fontSize: 16,
             ),
-            errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(4.0),
-                borderSide: BorderSide(color: CustomColors.flamingo)),
-            errorText: widget.errorMessage,
+            errorBorder: (widget.errorMessage?.length ?? 0) == 0
+                ? OutlineInputBorder(
+                    borderSide: BorderSide(color: CustomColors.whisper))
+                : OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                    borderSide: BorderSide(color: CustomColors.flamingo)),
+            errorText: '',
             errorStyle: TextStyle(
               fontFamily: "Rubik",
               fontWeight: FontWeight.w300,

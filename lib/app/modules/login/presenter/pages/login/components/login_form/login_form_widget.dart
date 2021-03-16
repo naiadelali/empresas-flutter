@@ -27,23 +27,23 @@ class LoginFormWidget extends StatelessWidget {
       children: [
         Padding(
           padding:
-              const EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 10),
+              const EdgeInsets.only(top: 100, left: 20, right: 20, bottom: 10),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 DefaultTextFieldWidget(
-                  labelText: 'Email',
-                  fontColor: Colors.black.withOpacity(0.8),
-                  backgroundColor: Colors.transparent,
-                  onChanged: emailChanged,
-                ),
+                    labelText: 'Email',
+                    fontColor: Colors.black.withOpacity(0.8),
+                    backgroundColor: Colors.transparent,
+                    onChanged: emailChanged,
+                    errorMessage: errorMsg),
                 SizedBox(height: 20),
                 PasswordTextFormFieldWidget(
-                  onChanged: passwordChanged,
-                  validator: () => {},
-                  label: '',
-                ),
+                    onChanged: passwordChanged,
+                    validator: () => {},
+                    label: 'Senha',
+                    errorMessage: errorMsg),
                 Visibility(
                   visible: (errorMsg?.length ?? 0) != 0,
                   child: Align(
